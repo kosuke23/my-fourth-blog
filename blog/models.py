@@ -1,7 +1,8 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
-
+# import cloudinary
+# from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Post(models.Model):
@@ -11,6 +12,8 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     images = models.ImageField(upload_to='', blank=True, null=True)
+    #  image = cloudinary.models.CloudinaryField('image', null=True, blank=True)
+    # images = CloudinaryField('image', blank=True, null=True,)
 
     def publish(self):
         self.published_date = timezone.now()
